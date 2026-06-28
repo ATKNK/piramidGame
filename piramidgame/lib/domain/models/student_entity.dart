@@ -36,8 +36,17 @@ class Student extends Equatable {
 
   void _validate() {
     if (year < 1998 || year > 2026) {
-      throw ArgumentError('Ano inválido, deve ser entre 1996 e 2026');
+      throw ArgumentError('Ano inválido, deve ser entre 1998 e 2026');
     }
+  }
+
+  int get legendLevel {
+    int sum = 0;
+    for (Criterion c in criteria) {
+      sum += c.stars;
+    }
+
+    return sum;
   }
 
   Student copyWith({
