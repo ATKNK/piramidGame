@@ -14,49 +14,65 @@ enum CourseClass {
 }
 
 class Student extends Equatable {
+  final String id;
   final String name;
   final CourseClass course;
   final int year;
   final String nickname;
   final DateTime birthdate;
+  final List<Criterion> criteria;
 
   Student({
+    required this.id,
     required this.name,
     required this.course,
     required this.year,
     required this.nickname,
     required this.birthdate,
+    required this.criteria,
   }) {
     _validate();
   }
 
   void _validate() {
-    if (year < 1996 || year > 2026) {
+    if (year < 1998 || year > 2026) {
       throw ArgumentError('Ano inválido, deve ser entre 1996 e 2026');
     }
   }
 
   Student copyWith({
+    String? id,
     String? name,
     CourseClass? course,
     int? year,
     String? nickname,
     DateTime? birthdate,
+    List<Criterion>? criteria,
   }) {
     return Student(
+      id: id ?? this.id,
       name: name ?? this.name,
       course: course ?? this.course,
       year: year ?? this.year,
       nickname: nickname ?? this.nickname,
       birthdate: birthdate ?? this.birthdate,
+      criteria: criteria ?? this.criteria,
     );
   }
 
   @override
-  List<Object?> get props => [name, course, year, nickname, birthdate];
+  List<Object?> get props => [
+    id,
+    name,
+    course,
+    year,
+    nickname,
+    birthdate,
+    criteria,
+  ];
 
   @override
   String toString() {
-    return 'Student(name: $name, course: ${course.course}, year: $name, nickname: $nickname, birthdate: $birthdate)';
+    return 'Student(id: $id, name: $name, course: ${course.course}, year: $year, nickname: $nickname, birthdate: $birthdate, criteria: $criteria)';
   }
 }
