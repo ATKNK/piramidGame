@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:piramidgame/domain/models/criterio_entity.dart';
+import 'criterion_entity.dart';
 
 enum CourseClass {
   info('INFO'),
