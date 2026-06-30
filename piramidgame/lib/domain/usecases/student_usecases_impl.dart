@@ -62,3 +62,12 @@ final class DeleteStudentUseCaseImpl implements IDeleteStudentUseCase {
     return _repository.deleteStudent(s);
   }
 }
+
+final class CalculateRankUseCaseImpl implements ICalculateRankUseCase {
+  @override
+  List<Student> call(List<Student> students) {
+    final copy = [...students];
+    copy.sort((a, b) => b.legendLevel.compareTo((a.legendLevel)));
+    return copy;
+  }
+}

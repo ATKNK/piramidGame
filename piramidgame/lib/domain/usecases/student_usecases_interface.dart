@@ -21,3 +21,7 @@ abstract interface class IUpdateStudentUseCase {
 abstract interface class IDeleteStudentUseCase {
   Future<StudentResult> call(Student s);
 }
+
+abstract interface class ICalculateRankUseCase {
+  List<Student> call(List<Student> students);
+}
